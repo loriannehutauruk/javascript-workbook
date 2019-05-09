@@ -8,17 +8,26 @@ const rl = readline.createInterface({
 });
 
 
-function pigLatin(word) {
-  const vowel = "aeiou";
-  let match = -1;
-  let index = -1;
-  // find index of first vowel
-  for (let x = 0; x < word.length && match < 0; x++) {
-    match = vowel.indexOf(word.charAt(x));
-   // console.log(match)
-    if (match >= 0) {
-      index = x;
-     // console.log(index)
+function pigLatin (word) {
+  word = word.toLowerCase().trim();
+    if (isVowel(word.charAt(0))) {
+      return word + "yay";
+    } 
+    else {
+      //transform string to an array and then
+      while (!isVowel(word.charAt(0)));
+      i++;
+  
+      return word;
+    }
+  
+    function isVowel (word) {
+    if  ((word.charAt(0) === 'a') || (word.charAt(0) === 'e') || (word.charAt(0) === 'i') || (word.charAt(0) === 'o') || (word.charAt(0) === 'u')) {
+      return true;
+    }
+    else {
+      return false;
+    }
     }
   }
   
