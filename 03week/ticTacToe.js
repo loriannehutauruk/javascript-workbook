@@ -13,6 +13,7 @@ let board = [
 ];
 
 let playerTurn = 'X';
+counter = 
 
 function printBoard() {
   console.log('   0  1  2');
@@ -57,7 +58,11 @@ function ticTacToe(row, column) {
   else {
     playerTurn = 'X';
   }
+checkForWin()
 
+if (checkForWin() === true) {
+  break;
+}
 }
 
 function getPrompt() {
