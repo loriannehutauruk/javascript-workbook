@@ -7,20 +7,28 @@ const rl = readline.createInterface({
   output: process.stdout
 });
 
-
+// function determines what will be returned after evaluating first elements of words for vowels.
 function pigLatin (word) {
+// first turn word into lower case and remove whitespace
   word = word.toLowerCase().trim();
+    // if furst element of the word is a vowel, return word + 'yay'
     if (isVowel(word.charAt(0))) {
       return word + "yay";
     } 
     else {
-      //transform string to an array and then
-      while (!isVowel(word.charAt(0)));
-      i++;
-  
-      return word;
+    // transform string to an array
+     word = word.split("");
+    //while loop to shift every index that is not a vowel
+    while (i = !isVowel);
+    i++;
+    //define consonant to shift every index that is not a vowel
+    consonant = word.shift(i)
+    // join elements of the array to a string
+    word = word.join("")
+    //return word plus consonants plus the ending 'ay' 
+    return word + consonant + 'ay';
     }
-  
+    // boolean function to detect if the first element in of the word is a vowel
     function isVowel (word) {
     if  ((word.charAt(0) === 'a') || (word.charAt(0) === 'e') || (word.charAt(0) === 'i') || (word.charAt(0) === 'o') || (word.charAt(0) === 'u')) {
       return true;
@@ -31,14 +39,7 @@ function pigLatin (word) {
     }
   }
   
-  if (index > 0) {
-    word = word.slice(index) + word.substring(0, index) + "ay";
-  } 
-  else {
-    word = word.slice(index) + word.substring(0, 1) + "yay";
-  }
-  return word.toLowerCase();
-}
+
 console.log(pigLatin("car"));
 console.log(pigLatin("dog"));
 console.log(pigLatin("create"));
