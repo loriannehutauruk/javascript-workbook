@@ -13,7 +13,6 @@ let board = [
 ];
 
 let playerTurn = 'X';
-counter = 
 
 function printBoard() {
   console.log('   0  1  2');
@@ -24,6 +23,7 @@ function printBoard() {
   console.log('2 ' + board[2].join(' | '));
 }
 
+//checks for horizontal win
 function horizontalWin(row) {
   if (board[0].every(cell => cell === 'X') || board[1].every(cell => cell === 'X') || board[2](cell => cell === 'X'))
   return true;
@@ -34,20 +34,41 @@ return false;
 
 //checks for vertical win
 function verticalWin() {
-  if (board[0][0]=== 'X' && board[1][1] === 'X' && board [2][1] === 'X')
+  if (board[0][0]=== 'X' && board[1][1] === 'X' && board [2][1] === 'X') {
    return true;
-  
+  }
+   else if (board[0][0] === 'X' && board[1][0] === 'X' && board[2][0] === 'X' ){
+    return true;
+  }
+  else if (board[0][2] === 'X' && board[1][2] === 'X' && board[2][2] === 'X' ){
+    return true;
+  }
+  else{
+    return false;
+  }
 }
 
 //checks for diagonal win
 function diagonalWin() {
-  if (board[0][0]=== 'X' && board[1][1] === 'X' && board[2][2] === 'X')
+  if (board[0][0]=== 'X' && board[1][1] === 'X' && board[2][2] === 'X') {
    return true;
+  }
+  else if (board[0][2] === 'X' && board[1][1] === 'X' && board[2][0] === 'X' ) {
+    return true;
+  }
+  else {
+  return false;
+  }
 }
 
-//checks if there is a winner with player marker as parameter
-function checkForWin(player) {
-  return true;
+//checks if there is a winner calling all win function scenarios and returning true of one of the three scenarios is true
+function checkForWin() {
+  if (diagonalWin() === true || verticalWin() === true || horizontalWin() === true){
+    return true;
+  }
+  else {
+  return false;
+  }
 }
 //function to print markers and switch turns
 function ticTacToe(row, column) {
@@ -58,7 +79,8 @@ function ticTacToe(row, column) {
   else {
     playerTurn = 'X';
   }
-checkForWin()
+// call checkforwin function to break switching turns if there has been a win
+  checkForWin()
 
 if (checkForWin() === true) {
   break;
@@ -74,9 +96,7 @@ function getPrompt() {
       getPrompt();
     });
   });
-
 }
-
 
 
 // Tests
