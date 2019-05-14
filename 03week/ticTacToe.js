@@ -34,10 +34,10 @@ return false;
 
 //checks for vertical win
 function verticalWin() {
-  if (board[0][0]=== 'X' && board[1][1] === 'X' && board [2][1] === 'X') {
+  if (board[0][0]=== 'X' && board[1][0] === 'X' && board [2][0] === 'X') {
    return true;
   }
-   else if (board[0][0] === 'X' && board[1][0] === 'X' && board[2][0] === 'X' ){
+   else if (board[0][1] === 'X' && board[1][1] === 'X' && board[2][1] === 'X' ){
     return true;
   }
   else if (board[0][2] === 'X' && board[1][2] === 'X' && board[2][2] === 'X' ){
@@ -66,14 +66,14 @@ function checkForWin() {
   if (diagonalWin() === true || verticalWin() === true || horizontalWin() === true){
     return true;
   }
-  else {
+  
   return false;
-  }
+  
 }
 //function to print markers and switch turns
 function ticTacToe(row, column) {
-  board[row][colum] = playerTurn;
-  if (playerTurn = 'X') {
+  board[row][column] = playerTurn;
+  if (playerTurn === 'X') {
     playerTurn = 'O';
   }
   else {
