@@ -10,6 +10,34 @@ let jobTypes = {
 };
 
 // Your code here
+class CrewMember {
+  constructor(name, job, specialSkill) {
+    this.name = name;
+    this.job = job;
+    this.specialSkill = specialSkill;
+    this.ship = null;
+  }
+  enterShip(mav) {
+    this.ship = mav;
+    mav.crew.push(this);
+
+  }
+}
+//we need to create a class called ship with three values in constructor, and create an array for crew where we can later add cremembers
+class Ship {
+  constructor (name, type, ability){ 
+    this.name = name;
+    this.type = type;
+    this. ability = ability;
+    this. crew = [];
+  }
+  //mission statement returns two cases. case where we can't perfomr a mission and the case where the person can where we retunr the last value in ship. check if crew member ship is not null and if the crew member is inside the list, we return positive message, if not, return the negative message.
+  missionStatement(){
+    if (this.crew.length == 0 && CrewMember.ship == null) 
+      return `Can't perform a mission yet.`;
+    return this.ability;
+  }
+}
 
 //tests
 if (typeof describe === 'function'){
