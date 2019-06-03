@@ -10,6 +10,7 @@ let jobTypes = {
 };
 
 // Your code here
+//we need to create a class called crew memeber with three values in constructor, and give null to the ship key
 class CrewMember {
   constructor(name, job, specialSkill) {
     this.name = name;
