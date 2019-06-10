@@ -2,24 +2,53 @@
 
 const assert = require('assert');
 
+// for each element make a callback
 function forEach(arr, callback) {
   // Your code here
+  for(let i=0; i< arr.length; i++) {
+    callback(arr[i]);
+  }
 }
 
+// map returns a new array. . delcare an empty array outside the for lop. after the loop we return the new array. inside we push the new array.
 function map(arr, callback) {
   // Your code here
+  let x=[];
+  for(let i=0; i< arr.length; i++) {
+    x.push(callback(arr[i]));
+  }
+  return x;
 }
 
+// filer return an array on the condition of the callback passing. if the callback is true then i push the array of i. 
 function filter(arr, callback) {
   // Your code here
+  let x=[];
+  for(let i=0; i< arr.length; i++) {
+    if (callback(arr[i]))
+    x.push(arr[i]);
+  }
+  return x;
 }
 
+// checks every element. if one of them is true, the function some will return true.
 function some(arr, callback) {
   // Your code here
+  for(let i=0; i< arr.length; i++) {
+    if (callback(arr[i]))
+     return true;
+  }
+  return false;
 }
 
+// checks every element. the function every will return true only if every element is true. Instead of checking if every element is true, it is easier to check for an element that is false.
 function every(arr, callback) {
   // Your code here
+  for(let i=0; i< arr.length; i++) {
+    if (!callback(arr[i]))
+     return false;
+  }
+  return true;
 }
 
 if (typeof describe === 'function') {

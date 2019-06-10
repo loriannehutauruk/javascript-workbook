@@ -7,14 +7,23 @@ const rl = readline.createInterface({
   output: process.stdout
 });
 
-
-function Checker() {
+//create a class of checkers that holds the symbol (team) - you can do x's and o'x as in TicTacToe
+function Checker(color) {
   // Your code here
+  if (color === 'white'){
+    this.symbol = String.fromCharCode(0x125CB);
+  } 
+  else {
+    this.symbol = String.fromCharCode(0x125CF);
+  }
 }
 
+//creates checkers and puts them on the board
 class Board {
   constructor() {
     this.grid = []
+    this.checkers = []
+    
   }
   // method that creates an 8x8 array, filled with null values
   createGrid() {
@@ -53,6 +62,41 @@ class Board {
   }
 
   // Your code here
+  createCheckers () {
+    //instantiate white and black checkers
+    let white = new Checker('white');
+    let black = new Checker('black');
+
+    for (let row = 0; row < 8; row ++) {
+    for (let col=0; col <8; col++) {
+      //display white checkers following the patterns checking if rows and columns are even or odd
+      if (row < 3 && (row %2 === 0) && (col %2 !== 0)) {
+        this.checkers.push(white);
+        this.grid[row][col] = white;
+      }
+      if (row < 3 && (row %2 !== 0) && (col %2 == 0)) {
+        this.checkers.push(white);
+        this.grid[row][col] = white;
+      }
+      
+      //display black checkers following the patterns checking if rows and columns are even or odd
+      if (row > 4 && (row %2 === 0) && (col %2 !== 0)) {
+        this.checkers.push(black);
+        this.grid[row][col] = black;
+      }
+      if (row > 4 && (row %2 !== 0) && (col %2 == 0)) {
+        this.checkers.push(black);
+        this.grid[row][col] = black;
+      }
+      
+    }
+
+    }
+  }
+//return the checker at that particular spot on this.grid.
+ selectChecker (row, column){
+   return this.grid[row][col];
+ }
 }
 
 class Game {
@@ -61,6 +105,12 @@ class Game {
   }
   start() {
     this.board.createGrid();
+    this.board.createCheckers();
+  }
+
+  //THIS IS WHERE YOU LEFT OFFFFF!!!!!!!!!!!!!!!!
+  moveChecker (row,column) {
+
   }
 }
 
