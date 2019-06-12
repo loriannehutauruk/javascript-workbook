@@ -15,9 +15,9 @@ const sumEvens= num.reduce (
 console.log(sumEvens);
 
 // Find the index of the first value when  its accumulated value is euql to 512 (#ATX!!)
-// const atxIdx;
+const atxIdx;
 
-// console.log(`index: ${atxIdx}, value: ${nums[atxIdx]}`);
+console.log(`index: ${atxIdx}, value: ${nums[atxIdx]}`);
 
 const weather = [
   { id: 5743823523151872,
@@ -92,12 +92,9 @@ weatherStates = weather.map(x => x.weather_state_name);
 console.log(weatherStates);
 
 //find the id of the object in weather that has a min_temp of 15.915
+// First filter through the object for states that meet the temp requirement, then log the id of each one that was filtered
+idealTemp = weather.filter(x => x.min_temp < 15.915)
+console.log(idealTemp.map(temp => temp.id))
 
-idealTemp = weather.filter((weatherState, i) => weatherState.min_temp < 15.915, console.log(weather.id))
-console.log(idealTemp)
 
-
-//How can I log the id value after i've filtered through with the temp value
-// idealTemp = weather.filter(x => x.min_temp < 15.915)
-// console.log(idealTemp)
 
