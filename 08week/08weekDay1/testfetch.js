@@ -4,7 +4,7 @@ const assert = require('assert');
 
 
 const getPost = (fetch,id,key) => {
-    return fetch ('https://randomuser.me/api/'+id + '?key='+key);
+    return fetch ('https://randomuser.me/api/'+id /*+ '?key='+key*/);
 }
 
 
@@ -19,21 +19,29 @@ describe('#Test Fetch',()=>{
     {
         //for third test you need to split by ? so that you can get the key separate from the url
         const arr =url.split('/');
-        let id = Number([arr.length-1])
-        if (id<=0 || id>30)
+        let id = arr[(arr.length-1)];
+        const arr2 = url.split('?');
+        let key = arr2[(arr2.length-1)];
+        
+        if (id <=0 || id > 30)
             return 'Out of range'
+        // if (key != '1234')
+        //     return 'Not a valid key'
         else
             return url;
     }
-    //for the first test you need to compare the address
+    //for the first test you need to compare the url address
     it('Miss typed address,',()=>{
-        assert.equal(getPost(Fakefetch, 15), 'https://randomuser.me/api/15')
+        assert.equal(getPost(Fakefetch, 15/*, '2345'*/), 'https://randomuser.me/api/15')
     });
     //second test checks that the id is not beyond a certain value
     it('Out of range',()=>{
-        assert.equal(getPost(Fakefetch, 31), 'Out of range');
+        assert.equal(getPost(Fakefetch, 31/*, '2345'*/), 'Out of range');
     });
-    //for third test check if the key is the same as the default value. THIS IS WHERE YOU LEFT
+    //for third test check if the key is the same as the default value. THIS IS WHERE YOU LEFT OFF
+    // it('Not a valid key',()=>{
+    //     assert.equal(getPost(Fakefetch, 15, '2345'), 'Not a valid key');
+    // });
 })
 
 } else {
