@@ -23,6 +23,8 @@ const askQuestions = () => {
 
         }
     
+
+  
      userFilm = prompt(" What Episode is the Second one ever Made");
      if( Number(userFilm) === 5){
             // return film 4 from the API
@@ -33,6 +35,7 @@ const askQuestions = () => {
             user = 1;
         }
         
+   
      userFilm = prompt(" What Episode is the Third one ever Made");
      if( Number(userFilm) === 4){
             // return film 4 from the API
